@@ -54,11 +54,17 @@ $(function () {
         console.log(fortuneResults[i][rand]['detail']); // fortuneResultsの内容をランダムに表示
           $('.stars').text(fortuneResults[i][rand]['stars']);
           $('.detail').text(fortuneResults[i][rand]['detail']);
-          $('.result').show()
-            $(this).toggleClass('.js-fortune-start');    // 既存のクラスを削除
-            $(this).toggleClass('.js-fortune-restart');    // 新しいクラスを追加（クラス名は任意。このクラスをclickしたときのイベントを追加すること）
-            $(this).text('もう一度占う！');    // HTML要素の値を変える
-
+          $('.result').show();
       }
+            $(this).toggleClass('js-fortune-start');    // 既存のクラスを削除
+            $(this).toggleClass('js-fortune-restart');    // 新しいクラスを追加（クラス名は任意。このクラスをclickしたときのイベントを追加すること）
+            $(this).text('もう一度占う！');    // HTML要素の値を変える
   });
-});
+
+  $(document).on('click',".js-fortune-restart",function() {    // js-fortune-startがあるHTML要素をクリックされたら
+            $('.result').hide();
+            $(this).toggleClass('.js-fortune-restart');    // 既存のクラスを削除
+            $(this).toggleClass('.js-fortune-start');    // 新しいクラスを追加（クラス名は任意。このクラスをclickしたときのイベントを追加すること）
+            $(this).text('運勢を占う');    // HTML要素の値を変える
+  })
+})
