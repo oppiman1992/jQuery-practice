@@ -52,10 +52,10 @@ $(function () {
         const rand = Math.floor(Math.random() * 3);
         console.log(fortuneResults[i][rand]['stars']);    // fortuneResultsには、stars, detail はそれぞれ3つずつ要素があるので、0～2を指定する
         console.log(fortuneResults[i][rand]['detail']); // fortuneResultsの内容をランダムに表示
-          $('.stars').text(fortuneResults[i][rand]['stars']);
-          $('.detail').text(fortuneResults[i][rand]['detail']);
+        $('.'+ i).find('.stars').text(fortuneResults[i][rand]['stars']);    // iにはmoney, work, healthが入っているため、$('.money') のような形になる
+        $('.'+ i).find('.detail').text(fortuneResults[i][rand]['detail']);
       }
-            $('.result').show();
+        $('.result').show();
             $(this).toggleClass('js-fortune-start');    // 既存のクラスを削除
             $(this).toggleClass('js-fortune-restart');    // 新しいクラスを追加（クラス名は任意。このクラスをclickしたときのイベントを追加すること）
             $(this).text('もう一度占う！');    // HTML要素の値を変える
